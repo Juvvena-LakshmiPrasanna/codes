@@ -1,41 +1,53 @@
-package com.del.second.entity;
+package com.deloitte.firstmnv.hibthird.entity;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+@Entity
 public class Courses 
 {
-   int course_id;
-   String course_name;
-   int course_duration;
-   double course_fee;
+   @Id
+   int cid;
+   String cname;
+   int duration;
+   @ManyToMany
+   @JoinTable(name="student_course_reg",joinColumns={@JoinColumn(name="cid")},inverseJoinColumns={@JoinColumn(name="sid")})
+   List<Student> slist;
    public Courses() {}
-   public Courses(int course_id, String course_name, int course_duration, double course_fee) 
-   {
-	this.course_id = course_id;
-	this.course_name = course_name;
-	this.course_duration = course_duration;
-	this.course_fee = course_fee;
-   }
-public int getCourse_id() {
-	return course_id;
+   public Courses(int cid, String cname, int duration) 
+{
+	this.cid = cid;
+	this.cname = cname;
+	this.duration = duration;
 }
-public void setCourse_id(int course_id) {
-	this.course_id = course_id;
+public int getCid() {
+	return cid;
 }
-public String getCourse_name() {
-	return course_name;
+public void setCid(int cid) {
+	this.cid = cid;
 }
-public void setCourse_name(String course_name) {
-	this.course_name = course_name;
+public String getCname() {
+	return cname;
 }
-public int getCourse_duration() {
-	return course_duration;
+public void setCname(String cname) {
+	this.cname = cname;
 }
-public void setCourse_duration(int course_duration) {
-	this.course_duration = course_duration;
+public int getDuration() {
+	return duration;
 }
-public double getCourse_fee() {
-	return course_fee;
+public void setDuration(int duration) {
+	this.duration = duration;
 }
-public void setCourse_fee(double course_fee) {
-	this.course_fee = course_fee;
+public List<Student> getSlist() {
+	return slist;
 }
+public void setSlist(List<Student> slist) {
+	this.slist = slist;
+}
+   
+   
+   
 }
