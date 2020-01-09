@@ -1,43 +1,27 @@
-package com.del.first.dao;
-import java.sql.*;
-import com.del.first.entity.Users;
+package com.spring.web.dao;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.spring.web.entity.Users;
+
+@Repository
 public class UsersDAO 
 {
-   public boolean validateUser(Users u)
+   SessionFactory sessionFactory;
+   @Autowired
+   public UsersDAO(SessionFactory sessionFactory)
    {
-	   int count = 0;
-	   Connection con = null;
-	   PreparedStatement pst = null;
-	   ResultSet rs = null;
-	   String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-	   try
-	   {
-		   Class.forName("oracle.jdbc.driver.OracleDriver");
-		   con = DriverManager.getConnection(url,"scott","tiger");
-		   pst = con.prepareStatement("select * from users where username=? and password=?");
-		   pst.setString(1, u.getUsername());   pst.setString(2, u.getPassword());
-		   rs = pst.executeQuery();
-		   if(rs.next()) count = 1;
-		   
-	   }
-	   catch(Exception ex)
-	   {
-		   ex.printStackTrace();
-		 
-	   }
-	   finally
-	   {
-		   try
-		   {
-			   if(rs!=null) rs.close();
-			   if(pst!=null) rs.close();
-			   if(con!=null) rs.close();
-		   }
-		   catch(Exception ex)
-		   {
-			   ex.printStackTrace();
-		   }
-	   }
-	   return count == 1;
+	   this.sessionFactory=sessionFactory;
+   }
+   public boolean searchUser(Users u)
+   {
+	   Session session = sessionFactory.openSession();
+	   Query qry = session.createQuery("from Users u where u.username=? and u.password=?");
+	   qry.setString(0, u.getUsername());
+	   qry.setString(1,u.getPassword());
+	   return qry.list().size() > 0;
    }
 }
