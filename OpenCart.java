@@ -7,11 +7,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-public class OneWeb 
+
+public class OpenCart 
 {
-    public static void main(String[] args) throws IOException
-    {
-    	Properties objProp = new Properties();
+
+	public static void main(String[] args) 
+	{
+		Properties objProp = new Properties();
     	try
     	{
     		objProp.load(new FileInputStream("C://Users/admin/Desktop/prasanna/data1.properties"));
@@ -38,8 +40,10 @@ public class OneWeb
     	Obj2.click();
     	WebElement Obj3 = ObjDriver.findElement(By.xpath("//*[@id='input-email']"));
     	Obj3.sendKeys(objProp.getProperty("login"));
-    	WebElement Obj4 = ObjDriver.findElement(By.xpath("//*[@id='input-password']"));
-    	Obj4.sendKeys(objProp.getProperty("pwd"));
-    	
-    }
+    	WebElement Obj4 = ObjDriver.findElement(By.xpath("//*[@id='content']/div/div[2]/div/form/input"));
+    	Obj4.click();
+    	WebElement Obj5 = ObjDriver.findElement(By.xpath("//*[@id='account-login']/div[1]"));
+    	System.out.println(Obj5);
+	}
+
 }
