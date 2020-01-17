@@ -1,0 +1,36 @@
+what is the difference between BVT and Defects Life Cycle
+What is the test process and test design
+what is the differencc between HTTP/SOAP/REST
+what Kind of tool is selenium in terms of Web based application
+what is the Load Runner suite and selenium suite
+Can selenium scripts be embedded in Load Runner - justify
+
+Requirement to automate a web based application for the currency validation
+
+1.The User has to validate the currency conversion keeping the base currency in INR as country Name India and display the currency for the various transactions in the opencart and validate the base curreny with populated in the open cart application
+
+2.The input has to be taken for the user for the base currency and checked against the tranaction curreny with valiation on the web based objects
+Count the number of links in the drop down box of the currency
+
+3.capture the validation message for the invalid curreny using the java script alert box or text message
+                                                                                          
+
+                                                                                                       ***   Answers ***
+1.Build Verification test (BVT) is a set of tests run on every new build to verify that build is testable before it is released to test team for further testing.
+   Defect life cycle is a cycle  which a defect goes through during its life time.It starts when a defect is found and ends when a defect is closed.
+
+2.Test Process  is a process of evaluating a system or its components with the intent to find whether it satisfies the specified requirements or not.
+   TEST Design  is a set of conditions or variables under which a tester will determine whether a system under test satisfies requirements or works correctly.  
+
+3.Hypertext transfer protocol (HTTP) is an underlying protocol used by the world wide web and this protocol defines how messages are formatted and transmitted.
+   And what actions Web servers and browsers should take in response to various commands.SOAP is an XML-based protocol for accessing web services over HTTP.
+   SOAP is a protocol or in other words is a definition of how web services talk to each other or talk to client applications that invoke them.A RESTful API is an 
+    application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data.
+
+4.Selenium is an open source tool which is used for automating the tests carried out on web browsers (Web applications are tested using any web browser).
+
+5. LoadRunner is an automated load testing tool that allows you to test your application before, during, and after deployment.  The Analysis is used to analyze load test results.
+   You will also learn to work with the graphs to display data after a test is run.Selenium is a free (open source) automated testing suite for web applications
+    across different browsers and platforms. 
+
+6.yes , it is possible . The selenium scripts can be embedded in load runner.
